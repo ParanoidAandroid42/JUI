@@ -10,15 +10,19 @@ namespace JLibrary.JUI
     public class ButtonManager : JUI
     {
         public UnityEvent OnClick;
-        private Button ButtonObj { get; set; }
-        public bool Interactable { get { return ButtonObj.interactable; } }
+        public Button ButtonComponent { get; set; }
+        public bool Interactable { get => ButtonComponent.interactable; set => ButtonComponent.interactable = value; }
 
         private new void Awake()
         {
             base.Awake();
-            ButtonObj = GetComponent<Button>();
-            ButtonObj.onClick.AddListener(ButtonOnClick);
+            Initialize();
             WhichElementEnum = WhichElement.Button;
+        }
+        private void Initialize() 
+        {
+            ButtonComponent = GetComponent<Button>();
+            ButtonComponent.onClick.AddListener(ButtonOnClick);
         }
 
         private void ButtonOnClick()

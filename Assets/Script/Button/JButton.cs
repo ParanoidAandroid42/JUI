@@ -6,16 +6,9 @@ namespace JLibrary.JUI
 {
     public class JButton : ButtonManager
     {
-        
-        void Start()
+        private void Start()
         {
-
-        }
-
-
-        void Update()
-        {
-
+            
         }
     }
 }

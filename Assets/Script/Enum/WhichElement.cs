@@ -1,7 +1,9 @@
 ﻿
 public enum WhichElement
 {
+    Empty,
     Button,
     Image,
-    Panel
+    Text,
+    Slider
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace JLibrary.JUI
 {
-    public  class UICanvas : MonoBehaviour
+    public class UIManagerBase : MonoBehaviour
     {
         public Dictionary<string, Elements> UIElements;
         protected virtual void Start()
@@ -31,15 +31,14 @@ namespace JLibrary.JUI
 
         private void AddElement(Transform t)
         {
-            JUI []j = t.GetComponents<JUI>();
+            JUI[] j = t.GetComponents<JUI>();
 
-            if (j.Length!=0)
+            if (j.Length != 0)
             {
                 Elements el = new Elements();
 
                 for (int i = 0; i < j.Length; i++)
                     el.WhichElement.Add(j[i].WhichElementEnum, j[i]);
-                   
 
                 UIElements.Add(t.name, el);
             }

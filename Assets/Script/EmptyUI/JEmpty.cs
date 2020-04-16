@@ -4,15 +4,9 @@ using UnityEngine;
 
 namespace JLibrary.JUI
 {
-  
-    public class JImage : ImageManager
+    public class JEmpty : JUI
     {
-        private void Start()
-        {
-            
-        }
+
     }
 }
-
-
 

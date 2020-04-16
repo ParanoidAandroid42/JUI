@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace JLibrary.JUI
 {
-  
-    public class JImage : ImageManager
+    public class JText : TextManager
     {
         private void Start()
         {
@@ -13,6 +12,4 @@ namespace JLibrary.JUI
         }
     }
 }
-
-
 

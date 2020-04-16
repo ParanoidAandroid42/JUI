@@ -6,19 +6,27 @@ using JLibrary.JUI;
 public class GameManager : MonoBehaviour
 {
 
-    void Start()
+    private void Start()
     {
 
     }
 
 
-    void Update()
+    private void Update()
     {
-        // JButton j = UIController.Instance.UIElements["Button"] as JButton;
-        // Debug.Log(j.Interactable);
-        JButton jb = UIController.FindUIComponent("Button", WhichElement.Button) as JButton;
-        JImage ji = UIController.FindUIComponent("Button", WhichElement.Image) as JImage;
-        Debug.Log(jb.Interactable);
-        Debug.Log(ji.ImageObj.color);
+        //JButton jb = UIManager.FindUIComponent("Start", WhichElement.Button) as JButton;
+        //JImage ji = UIManager.FindUIComponent("Start", WhichElement.Image) as JImage;
+
+        //JButton jb2 = UIManager.FindUIComponent("Quit", WhichElement.Button) as JButton;
+        //JImage ji2 = UIManager.FindUIComponent("Quit", WhichElement.Image) as JImage;
+
+       // JEmpty empty = UIManager.FindEmpty("Bos");
+       // Debug.Log(empty.GetComponent<RectTransform>().localScale);
+
+        //Debug.Log(jb.Interactable);
+        //Debug.Log(ji.ImageComponent.color);
+
+        //Debug.Log(jb2.Interactable);
+        //Debug.Log(ji2.ImageComponent.color);
     }
 }
