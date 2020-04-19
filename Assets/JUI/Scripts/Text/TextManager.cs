@@ -9,14 +9,21 @@ namespace JLibrary.JUI
     public class TextManager : JUI
     {
         public Text TextComponent { get; set; }
-        public string Text { get => TextComponent.text; set => TextComponent.text = value; }
-        public int FontSize { get => TextComponent.fontSize; set => TextComponent.fontSize = value; }
+        public string Text
+        {
+            get => TextComponent.text;
+            set => TextComponent.text = value;
+        }
+        public int FontSize
+        {
+            get => TextComponent.fontSize;
+            set => TextComponent.fontSize = value;
+        }
 
         private new void Awake()
         {
             base.Awake();
             Initialize();
-            WhichElementEnum = WhichElement.Image;
         }
         private void Initialize()
         {

@@ -11,24 +11,24 @@ namespace JLibrary.JUI
     {
         public UnityEvent OnClick;
         public Button ButtonComponent { get; set; }
-        public bool Interactable { get => ButtonComponent.interactable; set => ButtonComponent.interactable = value; }
+        public bool Interactable
+        {
+            get => ButtonComponent.interactable;
+            set => ButtonComponent.interactable = value;
+        }
 
         private new void Awake()
         {
             base.Awake();
             Initialize();
-            WhichElementEnum = WhichElement.Button;
         }
-        private void Initialize() 
+        private void Initialize()
         {
             ButtonComponent = GetComponent<Button>();
             ButtonComponent.onClick.AddListener(ButtonOnClick);
         }
 
-        private void ButtonOnClick()
-        {
-            OnClick?.Invoke();
-        }
+        private void ButtonOnClick() => OnClick?.Invoke();
     }
 }
 

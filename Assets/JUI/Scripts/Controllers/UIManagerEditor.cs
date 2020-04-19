@@ -34,9 +34,8 @@ namespace JLibrary.JUI
         private void CheckName(Transform t)
         {
             if (_componentName.Contains(t.name))
-            {
                 t.name += $"( {Guid.NewGuid().ToString()} )";
-            }
+
             _componentName.Add(t.name);
         }
         private void CheckComponent(Transform c)
@@ -44,10 +43,10 @@ namespace JLibrary.JUI
             ButtonControl(c);
             ImageControl(c);
             TextControl(c);
+
             if (!_emptyControl)
-            {
                 EmptyControl(c);
-            }
+
             _emptyControl = false;
         }
         private void EmptyControl(Transform c)
@@ -55,15 +54,17 @@ namespace JLibrary.JUI
             JEmpty je = c.GetComponent<JEmpty>();
 
             if (je == null)
-                c.gameObject.AddComponent<JEmpty>();
+            {
+                JEmpty j = c.gameObject.AddComponent<JEmpty>();
+                j.WhichElementEnum = WhichElement.Empty;
+            }
         }
         private void DeleteEmpty(Transform c)
         {
             JEmpty je = c.GetComponent<JEmpty>();
+
             if (je != null)
-            {
                 DestroyImmediate(je);
-            }
         }
         private void ButtonControl(Transform c)
         {
@@ -74,7 +75,10 @@ namespace JLibrary.JUI
                 JButton jb = c.GetComponent<JButton>();
 
                 if (jb == null)
-                    c.gameObject.AddComponent<JButton>();
+                {
+                    JButton j = c.gameObject.AddComponent<JButton>();
+                    j.WhichElementEnum = WhichElement.Button;
+                }
 
                 _emptyControl = true;
                 DeleteEmpty(c);
@@ -90,7 +94,10 @@ namespace JLibrary.JUI
                 JImage ji = c.GetComponent<JImage>();
 
                 if (ji == null)
-                    c.gameObject.AddComponent<JImage>();
+                {
+                    JImage j = c.gameObject.AddComponent<JImage>();
+                    j.WhichElementEnum = WhichElement.Image;
+                }
 
                 _emptyControl = true;
                 DeleteEmpty(c);
@@ -106,7 +113,10 @@ namespace JLibrary.JUI
                 JText jt = c.GetComponent<JText>();
 
                 if (jt == null)
-                    c.gameObject.AddComponent<JText>();
+                {
+                    JText j = c.gameObject.AddComponent<JText>();
+                    j.WhichElementEnum = WhichElement.Text;
+                }
 
                 _emptyControl = true;
                 DeleteEmpty(c);

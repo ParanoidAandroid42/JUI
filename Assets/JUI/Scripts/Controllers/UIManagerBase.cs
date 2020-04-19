@@ -39,6 +39,7 @@ namespace JLibrary.JUI
 
                 for (int i = 0; i < j.Length; i++)
                     el.WhichElement.Add(j[i].WhichElementEnum, j[i]);
+                   
 
                 UIElements.Add(t.name, el);
             }

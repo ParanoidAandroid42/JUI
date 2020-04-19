@@ -9,16 +9,25 @@ namespace JLibrary.JUI
     public class ImageManager : JUI
     {
         public Image ImageComponent { get; set; }
-        public Sprite Sprite { get => ImageComponent.sprite; set => ImageComponent.sprite = value; }
-        public Material Material { get => ImageComponent.material; set => ImageComponent.material = value; }
+        public Sprite Sprite
+        {
+            get => ImageComponent.sprite;
+            set => ImageComponent.sprite = value;
+        }
+
+        public Material Material
+        {
+            get => ImageComponent.material;
+            set => ImageComponent.material = value;
+        }
 
         private new void Awake()
         {
             base.Awake();
             Initialize();
-            WhichElementEnum = WhichElement.Image;
         }
-        private void Initialize()
+
+        public void Initialize()
         {
             ImageComponent = GetComponent<Image>();
         }
