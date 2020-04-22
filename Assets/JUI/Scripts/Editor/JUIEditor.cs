@@ -11,8 +11,7 @@ public class JUIEditor : EditorWindow
     private const string _layerName = "UI";
     private const string _canvasName = "Canvas";
     private const string _uIManager = "UIManager";
-    private const string _buttonName = "Button";
-   
+    private const string _uIEventSystem = "EventSystem";
 
     [MenuItem("JLibrary/JUI")]
     public static void JUI()
@@ -21,10 +20,15 @@ public class JUIEditor : EditorWindow
     }
     private static void Creator()
     {
-        GameObject uIManager = CreateUIManager();
-        GameObject canvas = CreateCanvas();
+        GameObject obj = GameObject.Find("UIManager");
+        if (obj==null)
+        {
+            GameObject uIManager = CreateUIManager();
+            GameObject canvas = CreateCanvas();
+            GameObject eventSystem = CreateEventSystem();
 
-        canvas.transform.SetParent(uIManager.transform);
+            canvas.transform.SetParent(uIManager.transform);
+        }
     }
     private static GameObject CreateUIManager()
     {
@@ -44,6 +48,12 @@ public class JUIEditor : EditorWindow
 
         return canvas;
     }
-    
+    private static GameObject CreateEventSystem() 
+    {
+        GameObject eventSystem = new GameObject(_uIEventSystem);
+        eventSystem.AddComponent<UnityEngine.EventSystems.EventSystem>();
+        eventSystem.AddComponent<UnityEngine.EventSystems.StandaloneInputModule>();
 
+        return eventSystem;
+    }
 }
