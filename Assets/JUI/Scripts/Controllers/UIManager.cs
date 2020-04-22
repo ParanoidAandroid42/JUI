@@ -9,7 +9,7 @@ namespace JLibrary.JUI
     {
         public static UIManager Instance = null;
 
-        private new void Start()
+        protected override void Start()
         {
             base.Start();
             Instance = this;

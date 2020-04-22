@@ -21,7 +21,7 @@ namespace JLibrary.JUI
             set => ImageComponent.material = value;
         }
 
-        private new void Awake()
+        protected override void Awake()
         {
             base.Awake();
             Initialize();

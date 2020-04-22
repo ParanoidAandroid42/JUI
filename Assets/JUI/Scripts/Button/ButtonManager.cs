@@ -17,7 +17,7 @@ namespace JLibrary.JUI
             set => ButtonComponent.interactable = value;
         }
 
-        private new void Awake()
+        protected override void Awake()
         {
             base.Awake();
             Initialize();
